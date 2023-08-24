@@ -30,6 +30,18 @@ def find_shortest(mat: List[list], visited: List[list], i: int, j: int, dest: tu
     if is_safe_cell(mat, visited, i, j - 1):
         min_dist = find_shortest(mat, visited, i, j - 1, dest, min_dist, dist + 1)
 
+    if is_safe_cell(mat, visited, i + 1, j + 1):
+        min_dist = find_shortest(mat, visited, i + 1, j + 1, dest, min_dist, dist + 1)
+
+    if is_safe_cell(mat, visited, i - 1, j - 1):
+        min_dist = find_shortest(mat, visited, i - 1, j - 1, dest, min_dist, dist + 1)
+
+    if is_safe_cell(mat, visited, i - 1, j + 1):
+        min_dist = find_shortest(mat, visited, i - 1, j + 1, dest, min_dist, dist + 1)
+
+    if is_safe_cell(mat, visited, i + 1, j - 1):
+        min_dist = find_shortest(mat, visited, i + 1, j - 1, dest, min_dist, dist + 1)
+
     visited[i][j] = 0
 
     return min_dist
@@ -61,7 +73,7 @@ if __name__ == '__main__':
     mat = [
         [0, 1, 0, 0],
         [0, 0, 0, 0],
-        [0, 1, 0, 1],
+        [0, 1, 1, 0],
         [0, 0, 0, 0],
     ]
 
